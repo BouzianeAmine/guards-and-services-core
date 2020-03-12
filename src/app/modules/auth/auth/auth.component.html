@@ -1,0 +1,25 @@
+<div class="main">
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <div>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Username" #username>
+                    </mat-form-field>
+                </p>
+                <p *ngIf="error" class="error">
+                    {{ "Not the good Credentials" }}
+                </p>
+                <div class="button">
+                    <button type="submit" mat-button (click)='submit(username.value)'>Login</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div *ngIf="!error">
+        <button (click)='deconnect()'>deconnect</button>
+    </div>
+    
+</div>

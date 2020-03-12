@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +11,7 @@ export class AuthComponent implements OnInit {
 
   error = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,12 +19,15 @@ export class AuthComponent implements OnInit {
   submit(username) {
     if (!this.authService.connect(username)) {
       this.error = true
-    } else this.error = false
+    } else {
+      this.error = false
+      this.router.navigate(['/restaus'])
+    }
   }
 
-  deconnect(){
+  deconnect() {
     console.log('Deconnecting')
-    this.authService.currentUser$.subscribe(user=>{
+    this.authService.currentUser$.subscribe(user => {
       console.log(user);
       this.authService.deconnect(user)
     })

@@ -8,8 +8,11 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private _router: Router) { }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    throw new Error("Method not implemented.");
+  }
 
-  canActivate(
+  /*canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     let res;
@@ -19,6 +22,6 @@ export class AuthGuard implements CanActivate {
     if (!res) this._router.navigate([''])
 
     return res;
-  }
+  }*/
 
 }

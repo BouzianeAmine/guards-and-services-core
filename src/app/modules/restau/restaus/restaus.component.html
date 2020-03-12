@@ -1,6 +1,17 @@
 <div class="date">
     {{date | date}}
 </div>
-<div *ngFor="let rest of restaus">
-    {{rest | json}}
-</div>
+<main>
+    <div class="cards">
+        <div *ngFor="let rest of restaus">
+            <mat-card class="card">
+                <mat-card-title>{{rest.nom}}</mat-card-title>
+                <mat-card-content>
+                    {{rest.adresse | json }}
+                </mat-card-content>
+                <input type="checkbox">
+            </mat-card>
+
+        </div>
+    </div>
+</main>

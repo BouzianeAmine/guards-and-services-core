@@ -9,25 +9,36 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class AuthService {
   private currentuser: Subject<any> = new Subject<any>();
-  public currentUser$: Observable<any> = this.currentuser.asObservable();
+  public readonly currentUser$: Observable<any> = this.currentuser.asObservable();
+  private auth: boolean = false;
 
   constructor(private sessionService: SessionStorageService, private localService: LocalStorageService) { }
 
   connect(username: string) {
     if (this.verifUser(username)) {
-      this.sessionService.set(username,username)
+      this.sessionService.set(username, username)
       this.currentuser.next(username)
+      this.auth = true
       return true;
-    } else return false;
+    } else {
+      this.auth = false
+      return false;
+    }
   }
 
-  deconnect(username: string) {
-    this.sessionService.delete(username)
-    console.log('done')
+  deconnect() {
+    this.auth = false
+    this.currentUser$.subscribe(username => {
+      this.sessionService.delete(username)
+    })
     this.currentuser.next(null);
   }
 
   verifUser(username) {
     return this.localService.get('users').filter(element => element.username == username).length == 0 ? false : true;
+  }
+
+  public isAuth() {
+    return this.auth;
   }
 }

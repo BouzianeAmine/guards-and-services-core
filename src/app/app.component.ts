@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { chargeToLocalStorage } from './core/consts/consts';
+import { AuthService } from './core/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,14 @@ import { chargeToLocalStorage } from './core/consts/consts';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private authService: AuthService) { }
+
   ngOnInit(): void {
-    
+
   }
-  title = 'restau-app';
+
+  isAuth(): boolean {
+    return this.authService.isAuth()
+  }
 }

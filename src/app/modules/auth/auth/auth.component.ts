@@ -25,12 +25,4 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  deconnect() {
-    console.log('Deconnecting')
-    this.authService.currentUser$.subscribe(user => {
-      console.log(user);
-      this.authService.deconnect(user)
-    })
-  }
-
 }

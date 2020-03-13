@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RestausComponent } from './restaus.component';
+import { AddRestauComponent } from './add-restau.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [RestausComponent],
   imports: [
-    CommonModule,SharedModule
+    CommonModule,
+    SharedModule
   ],
-  exports:[RestausComponent]
+  declarations: [AddRestauComponent]
 })
-export class RestauModule { }
+export class AddRestauModule { }

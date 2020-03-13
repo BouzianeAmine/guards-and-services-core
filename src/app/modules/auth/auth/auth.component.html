@@ -11,15 +11,10 @@
                 <p *ngIf="error" class="error">
                     {{ "Not the good Credentials" }}
                 </p>
-                <div class="button">
-                    <button type="submit" mat-button (click)='submit(username.value)'>Login</button>
-                </div>
             </div>
         </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)='submit(username.value)'>Login</button>
+        </mat-card-actions>
     </mat-card>
-
-    <div *ngIf="!error">
-        <button (click)='deconnect()'>deconnect</button>
-    </div>
-    
 </div>

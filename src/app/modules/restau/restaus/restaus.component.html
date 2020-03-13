@@ -9,9 +9,10 @@
                 <mat-card-content>
                     {{rest.adresse | json }}
                 </mat-card-content>
-                <input type="checkbox">
+                <mat-checkbox (change)="checked($event,rest)" #check>Checked</mat-checkbox>
+                {{check.value}}
             </mat-card>
-
         </div>
     </div>
+    <button class="button-validation" mat-button (click)="validate()">Validate Vote</button>
 </main>

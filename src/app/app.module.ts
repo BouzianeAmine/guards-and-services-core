@@ -16,7 +16,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CoreModule,
     BrowserAnimationsModule,
-    SharedModule 
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

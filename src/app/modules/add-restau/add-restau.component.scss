@@ -1,0 +1,13 @@
+.main{
+    padding-top:20% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid-element{
+    display: grid;
+    grid-gap: 10px;
+}
+.right-element{
+   padding-left: 70%;
+}

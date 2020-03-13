@@ -2,16 +2,29 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './modules/auth/auth/auth.component';
-
 import { RestausComponent } from './modules/restau/restaus/restaus.component';
-import { AuthGuard } from './shared/guards/auth.guard';
+import { AddRestauComponent } from './modules/add-restau/add-restau.component';
+import { VotesComponent } from './modules/votes/votes.component';
+
+
 
 const routes: Routes = [
   {
-    path: 'restaus',
-    component:RestausComponent
+    path: '',
+    component: AuthComponent
   },
-  { path: '', component: AuthComponent }
+  {
+    path: 'restaus',
+    component: RestausComponent
+  },
+  {
+    path: 'addRestau',
+    component: AddRestauComponent
+  },
+  {
+    path:'votes',
+    component:VotesComponent
+  }
 ];
 
 @NgModule({

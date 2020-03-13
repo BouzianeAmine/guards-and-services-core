@@ -19,7 +19,7 @@ export class AuthService {
     if (this.verifUser(username)) {
       this.sessionService.set(username, new User({username}))
       this.currentuser.next(username)
-      this.currentUser$.subscribe(value=>console.log(value))
+      //this.currentUser$.subscribe(value=>console.log(value))
       this.auth = true
       return true;
     } else {
@@ -30,7 +30,7 @@ export class AuthService {
 
   deconnect() {
     this.auth = false
-    console.log(this.currentUser$)
+    this.currentUser$.subscribe(user=>this.sessionService.delete(user))
     this.currentuser.next(null);
   }
 

@@ -9,7 +9,10 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private _router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    throw new Error("Method not implemented.");
+    if(!this.authService.isAuth()){
+      this._router.navigate([''])
+    }
+    return this.authService.isAuth()
   }
 
   /*canActivate(

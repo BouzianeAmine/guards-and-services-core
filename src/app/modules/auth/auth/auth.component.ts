@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/core/model/user';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +17,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(username) {
+  submit(username: string) {
     if (!this.authService.connect(username)) {
       this.error = true
     } else {

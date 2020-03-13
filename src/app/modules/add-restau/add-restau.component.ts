@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddRestauService } from 'src/app/core/services/add-restau/add-restau.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Restaurent } from 'src/app/core/modeles/restaurent';
+import { Restaurent } from 'src/app/core/model/restaurent';
 import { Router } from '@angular/router';
 
 @Component({

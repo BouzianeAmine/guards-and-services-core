@@ -1,4 +1,5 @@
-import { Restaurent } from '../modeles/restaurent';
+import { Restaurent } from '../model/restaurent';
+import { User } from '../model/user';
 
 export const restaus: Array<Restaurent> = [
     {
@@ -38,7 +39,7 @@ export function getLocalStorageRestaus():Array<Restaurent>{
     return JSON.parse(localStorage.getItem('restaus'));
 }
 
-export const users=[
+export const users:User[]=[
     {
         username:"amine"
     },

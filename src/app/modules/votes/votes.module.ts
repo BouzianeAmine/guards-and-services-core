@@ -8,4 +8,6 @@ import { VotesComponent } from './votes.component';
   ],
   declarations: [VotesComponent]
 })
-export class VotesModule { }
+export class VotesModule  {
+ 
+}

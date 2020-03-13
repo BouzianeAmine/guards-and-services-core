@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestausService } from 'src/app/core/services/restaus/restaus.service';
-import { Restaurent } from 'src/app/core/modeles/restaurent';
+import { Restaurent } from 'src/app/core/model/restaurent';
 import { restaus } from 'src/app/core/consts/consts';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaus',
@@ -14,7 +15,7 @@ export class RestausComponent implements OnInit {
   date = Date.now();
   votes: Array<Restaurent> = new Array<Restaurent>()
   check: boolean;
-  constructor(private restausService: RestausService) { }
+  constructor(private restausService: RestausService, private router: Router) { }
 
   ngOnInit() {
     this.restausService.getRestaus().subscribe((restaus: Array<Restaurent>) => {
@@ -23,15 +24,17 @@ export class RestausComponent implements OnInit {
   }
   //verifie d'abord s'il existe dans la liste pour eviter la redendance, sinon depandant de si checked ou pas on l'ajout ou on le supprime
   checked(event, restaurent: Restaurent) {
-    if (event.checked && this.votes.find(restau => restau == restaurent) == undefined) {
+    const res = this.votes.find(restau => restau == restaurent);
+    if (event.checked && res == undefined) {
       this.votes.push(restaurent)
     } else if (!event.checked) {
-      this.votes = this.votes.filter(restau => restau != restaurent)  
+      this.votes = this.votes.filter(restau => restau != restaurent)
     }
   }
 
   validate() {
-    console.log(this.votes)
+    this.restausService.sendVots(this.votes)
+    this.router.navigate(['votes'])
   }
 
 }

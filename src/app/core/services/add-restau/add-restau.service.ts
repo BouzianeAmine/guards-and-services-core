@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from '../localStorage/local-storage.service';
-import { Restaurent } from '../../modeles/restaurent';
+import { Restaurent } from '../../model/restaurent';
 import { RestausService } from '../restaus/restaus.service';
 
 @Injectable({

@@ -36,4 +36,8 @@ export class VotesComponent implements OnInit {
     return [...[], { nom: "DoMac", domacVotes }, { "nom": "BK", bkVotes }, { nom: "Subway", subwayVotes }]
   }
 
+  voteStat(vote){
+    return this.votes.filter(voteIt => voteIt.nom === vote.nom).length
+
+  }
 }

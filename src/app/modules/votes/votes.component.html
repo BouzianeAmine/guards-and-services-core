@@ -1,3 +1,9 @@
 <div class="main" *ngFor="let vote of votes">
   {{vote | json}}
 </div>
+<div >
+  {{voteStats() | json }}
+</div>
+<div>
+  {{getNumberOfVoters() }} / {{ getNumberOfUsers()}}
+</div>

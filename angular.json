@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "restau-app"
+  "defaultProject": "restau-app",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -9,12 +9,12 @@ import { stringify } from 'querystring';
 })
 export class VotesService {
 
-  constructor(private localService: LocalStorageService,private sessionService:SessionStorageService,private authService:AuthService) { }
+  constructor(private localService: LocalStorageService, private sessionService: SessionStorageService, private authService: AuthService) { }
 
   add(votes) {
-    if (!(votes.length == 0)) {
-      this.localService.set("votes", [...this.localService.get('votes'), votes])
-    }
+    if (!(votes.length == 0) && this.getVotes().length > 0) {
+      this.localService.set("votes", [...this.localService.get('votes'),...votes])
+    }else this.localService.set("votes",votes)
   }
 
   getVotes() {

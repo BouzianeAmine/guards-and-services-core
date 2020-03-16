@@ -7,8 +7,6 @@ import { AuthModule } from '../modules/auth/auth/auth.module';
 import { AddRestauModule } from '../modules/add-restau/add-restau.module';
 import { VotesModule } from '../modules/votes/votes.module';
 import { UserService } from './services/user/user.service';
-import { VoteGuardGuard } from './guards/vote-guard.guard';
-
 
 
 @NgModule({

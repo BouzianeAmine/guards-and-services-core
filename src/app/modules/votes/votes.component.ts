@@ -21,10 +21,12 @@ export class VotesComponent implements OnInit {
     this.votes = this.voteService.getVotes()
   }
 
+  //calculer le nombre de voteur par compter nombre de vote, parce qu'on sait bien que le user à le droit de voter qu'une seule fois dans une journée
   getNumberOfVoters() {
     return this.votes.length
   }
 
+  // le nombre de users c'est a longueur de la liste
   getNumberOfUsers() {
     return this.userService.getUsers().length
   }
@@ -33,7 +35,7 @@ export class VotesComponent implements OnInit {
     let domacVotes = this.votes.filter(vote => vote.nom === 'DoMac').length
     let bkVotes = this.votes.filter(vote => vote.nom === 'Burger king').length
     let subwayVotes = this.votes.filter(vote => vote.nom === 'Subway').length
-    return [...[], { nom: "DoMac", domacVotes }, { "nom": "BK", bkVotes }, { nom: "Subway", subwayVotes }]
+    return [{ nom: "DoMac", nbvote: domacVotes }, { nom: "Burger king", nbvote: bkVotes }, { nom: "Subway", nbvote: subwayVotes }]
   }
 
   voteStat(vote){

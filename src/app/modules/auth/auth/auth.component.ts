@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit {
       this.error = true
     } else {
       this.error = false
-      this.router.navigate(['/restaus'])
+      this.router.navigate(['/votes'])
     }
   }
 

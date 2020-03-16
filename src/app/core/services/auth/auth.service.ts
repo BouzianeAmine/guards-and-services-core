@@ -17,9 +17,8 @@ export class AuthService {
 
   connect(username: string) {
     if (this.verifUser(username)) {
-      this.sessionService.set(username, new User({username}))
-      this.currentuser.next(username)
-      //this.currentUser$.subscribe(value=>console.log(value))
+      this.sessionService.set(username, new User({ username }))
+      this.currentuser.next(new User({ username }))
       this.auth = true
       return true;
     } else {
@@ -30,15 +29,22 @@ export class AuthService {
 
   deconnect() {
     this.auth = false
-    this.currentUser$.subscribe(user=>this.sessionService.delete(user))
+    this.currentUser$.subscribe(user => this.sessionService.delete(user))
     this.currentuser.next(null);
   }
 
+  //verification de l'existance d'un utilisateur
   verifUser(username) {
-    return this.localService.get('users').filter((user:User) => user.username == username).length == 0 ? false : true;
+    return this.localService.get('users').filter((user: User) => user.username == username).length == 0 ? false : true;
   }
 
-  public isAuth() {
+  isAuth() {
     return this.auth;
+  }
+  //check if the current user has voted or not 
+  didVote() {
+    let vote;
+    this.currentUser$.subscribe((user: User) => vote = user.voted)
+    return vote;
   }
 }

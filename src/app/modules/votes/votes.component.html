@@ -1,6 +1,23 @@
-<div class="main" *ngFor="let vote of votes">
-  {{vote | json}} {{voteStat(vote)}} / 3
-</div>
-<div>
-  {{getNumberOfVoters() }} / {{ getNumberOfUsers()}}
-</div>
+<main>
+
+  <div>
+    <button mat-raised-button color="primary" [matBadge]="getNumberOfVoters()" matBadgePosition="before"
+      matBadgeColor="accent">
+      {{getNumberOfUsers()}}
+    </button>
+  </div>
+
+  <div class="main">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Restaurent</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let vote of voteStats()">
+          <p>{{ vote.nom }} : {{vote.nbvote}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+</main>

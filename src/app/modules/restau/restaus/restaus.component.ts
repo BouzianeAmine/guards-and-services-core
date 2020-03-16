@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestausService } from 'src/app/core/services/restaus/restaus.service';
-import { Restaurent } from 'src/app/core/model/restaurent';
+import { Restaurent, Adresse } from 'src/app/core/model/restaurent';
 import { restaus } from 'src/app/core/consts/consts';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
@@ -30,11 +30,18 @@ export class RestausComponent implements OnInit {
     } else if (!event.checked) {
       this.votes = this.votes.filter(restau => restau != restaurent)
     }
+    this.validate();
   }
 
+  //validate the votes, and navigate to the votes page to see the stats
   validate() {
     this.restausService.sendVots(this.votes)
-    this.router.navigate(['votes'])
+    this.router.navigate(['restaus'])
+  }
+
+  //prettify l'affichage de l'adresse
+  afficheAdresse(adress:Adresse){
+    return `${adress.no} ${adress.rue} ${adress.ville} ${adress.codePostale}`
   }
 
 }

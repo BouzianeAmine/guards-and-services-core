@@ -7,6 +7,7 @@ import { AuthModule } from '../modules/auth/auth/auth.module';
 import { AddRestauModule } from '../modules/add-restau/add-restau.module';
 import { VotesModule } from '../modules/votes/votes.module';
 import { UserService } from './services/user/user.service';
+import { VoteGuardGuard } from './guards/vote-guard.guard';
 
 
 
@@ -17,9 +18,9 @@ import { UserService } from './services/user/user.service';
     RestauModule,
     AuthModule,
     AddRestauModule,
-    VotesModule
+    VotesModule    
   ],
   exports: [RestauModule, AuthModule, AddRestauModule, VotesModule],
-  providers: [RestausService, AuthService,UserService]
+  providers: [RestausService, AuthService, UserService]
 })
 export class CoreModule { }

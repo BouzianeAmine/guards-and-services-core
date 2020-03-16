@@ -5,14 +5,18 @@
     <div class="cards">
         <div *ngFor="let rest of restaus">
             <mat-card class="card">
-                <mat-card-title>{{rest.nom}}</mat-card-title>
-                <mat-card-content>
-                    {{rest.adresse | json }}
-                </mat-card-content>
-                <mat-checkbox (change)="checked($event,rest)" #check>Checked</mat-checkbox>
-                {{check.value}}
+                <div class="content">
+                    <mat-card-title>{{rest.nom}}</mat-card-title>
+                    <mat-card-content>
+                        {{afficheAdresse(rest.adresse)}}
+                    </mat-card-content>
+                </div>
+                <mat-checkbox (change)="checked($event,rest)"></mat-checkbox>
             </mat-card>
         </div>
     </div>
-    <button class="button-validation" mat-button (click)="validate()">Validate Vote</button>
 </main>
+
+<!--<div class="button-validation">
+    <button mat-raised-button (click)="validate()">Validate Vote</button>
+</div>-->

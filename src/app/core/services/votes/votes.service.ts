@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 import { SessionStorageService } from '../sessionStorage/session-storage.service';
 import { AuthService } from '../auth/auth.service';
-import { stringify } from 'querystring';
+import { Restaurent } from '../../model/restaurent';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class VotesService {
     }else this.localService.set("votes",votes)
   }
 
-  getVotes() {
+  getVotes():Array<Restaurent>{
     return this.localService.get('votes');
   }
 }

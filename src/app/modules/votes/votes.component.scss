@@ -1,5 +1,13 @@
-.main{
+main{
     display: flex;
-    flex-direction: column;
-    padding-top: 4rem;
+    flex-direction: row;
+    padding-top: 6rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.main{
+    display: grid;
+    border:solid black 0.5;
+    grid-template-rows: repeat(1,1fr);
 }

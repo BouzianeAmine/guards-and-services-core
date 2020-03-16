@@ -6,6 +6,7 @@ import { RestausComponent } from './modules/restau/restaus/restaus.component';
 import { AddRestauComponent } from './modules/add-restau/add-restau.component';
 import { VotesComponent } from './modules/votes/votes.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { VoteGuardGuard } from './core/guards/vote-guard.guard';
 
 
 
@@ -15,7 +16,7 @@ const routes: Routes = [
     component: AuthComponent
   },
   {
-    path: 'restaus',
+    path: 'votes',
     component: RestausComponent,
     canActivate:[
       AuthGuard
@@ -29,10 +30,11 @@ const routes: Routes = [
     ]
   },
   {
-    path:'votes',
+    path:'restaus',
     component:VotesComponent,
     canActivate:[
-      AuthGuard
+      AuthGuard,
+      VoteGuardGuard
     ]
   }
 ];

@@ -5,7 +5,7 @@
 }
 .card{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 main{
@@ -25,5 +25,18 @@ main{
 }
 
 .button-validation{
+    display: flex;
+    flex-direction: column;
     padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    display: grid;
+    grid-template-rows: repeat(1,1fr);
+}
+
+mat-checkbox{
+    margin-left: 21px;
 }
